@@ -1,4 +1,4 @@
-"""Pydantic schemas package"""
+"""Pydantic schemas"""
 from .books import Book, BookCreate, BookUpdate
 from .users import User, UserCreate, UserUpdate
 from .loans import Loan, LoanCreate, LoanUpdate

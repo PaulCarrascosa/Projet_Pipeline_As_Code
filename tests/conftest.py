@@ -1,4 +1,4 @@
-"""Test configuration and fixtures"""
+"""Test configuration"""
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
@@ -10,7 +10,7 @@ from src.models.base import Base
 
 
 # Use in-memory SQLite for testing
-SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
+SQLALCHEMY_DATABASE_URL = "sqlite:///:memory:"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL,
@@ -33,15 +33,7 @@ def override_get_db():
 app.dependency_overrides[get_db] = override_get_db
 
 
-@pytest.fixture(scope="function")
-def test_db():
-    """Create a fresh database for each test"""
-    Base.metadata.create_all(bind=engine)
-    yield
-    Base.metadata.drop_all(bind=engine)
-
-
 @pytest.fixture
 def client():
-    """Create a test client"""
+    """Create test client"""
     return TestClient(app)

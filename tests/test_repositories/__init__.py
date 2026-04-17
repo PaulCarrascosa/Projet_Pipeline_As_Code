@@ -1,1 +1,1 @@
-"""Repository tests"""
+"""Repositories tests"""

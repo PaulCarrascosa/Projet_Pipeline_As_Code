@@ -1,1 +1,1 @@
-"""FastAPI Library Management Application"""
+"""Library Management System - FastAPI Application"""

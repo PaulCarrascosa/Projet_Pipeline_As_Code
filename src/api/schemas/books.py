@@ -1,11 +1,11 @@
-"""Pydantic schemas for books"""
+"""Books schemas"""
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
 
 class BookBase(BaseModel):
-    """Base schema for book"""
+    """Base Book schema"""
     title: str
     author: str
     isbn: str
@@ -15,12 +15,12 @@ class BookBase(BaseModel):
 
 
 class BookCreate(BookBase):
-    """Schema for creating a book"""
+    """Book creation schema"""
     pass
 
 
 class BookUpdate(BaseModel):
-    """Schema for updating a book"""
+    """Book update schema"""
     title: Optional[str] = None
     author: Optional[str] = None
     description: Optional[str] = None
@@ -29,7 +29,7 @@ class BookUpdate(BaseModel):
 
 
 class Book(BookBase):
-    """Schema for book response"""
+    """Book response schema"""
     id: int
     created_at: datetime
     updated_at: datetime

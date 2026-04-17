@@ -1,29 +1,29 @@
-"""Pydantic schemas for loans"""
+"""Loans schemas"""
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
 
 class LoanBase(BaseModel):
-    """Base schema for loan"""
+    """Base Loan schema"""
     user_id: int
     book_id: int
     due_date: datetime
 
 
 class LoanCreate(LoanBase):
-    """Schema for creating a loan"""
+    """Loan creation schema"""
     pass
 
 
 class LoanUpdate(BaseModel):
-    """Schema for updating a loan"""
+    """Loan update schema"""
     due_date: Optional[datetime] = None
     returned_at: Optional[datetime] = None
 
 
 class Loan(LoanBase):
-    """Schema for loan response"""
+    """Loan response schema"""
     id: int
     returned_at: Optional[datetime] = None
     created_at: datetime

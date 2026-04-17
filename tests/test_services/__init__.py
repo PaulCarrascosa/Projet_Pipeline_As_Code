@@ -1,1 +1,1 @@
-"""Service tests"""
+"""Services tests"""
